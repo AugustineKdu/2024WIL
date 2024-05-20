@@ -5,6 +5,7 @@ namespace Database\Factories;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 
 class UserFactory extends Factory
 {
@@ -16,7 +17,7 @@ class UserFactory extends Factory
             'name' => $this->faker->name,
             'user_code' => 'v' . $this->faker->unique()->numerify('####'),
             'email_verified_at' => now(),
-            'password' => bcrypt('password'), // 기본 비밀번호
+            'password' => bcrypt('password'),
             'remember_token' => Str::random(10),
         ];
     }
